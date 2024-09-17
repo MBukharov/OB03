@@ -24,4 +24,9 @@ zoo.add_employee("Валера","Zookeeper")
 zoo.add_employee("Анна","Veterinarian")
 
 zoo.zoo_info()
+zoo.employees[0].feed_animal()
+zoo.employees[1].heal_animal()
 zoo.animal_sound()
+
+zoo.write_data()
+zoo.read_data()

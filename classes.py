@@ -79,3 +79,22 @@ class Zoo():
         print("Голоса животных:")
         for animal in self.animals:
             animal.make_sound()
+
+    def write_data(self):
+        with open('data.txt','w') as file:
+            for animal in self.animals:
+                if animal.__class__.__name__ == "Bird":
+                    file.write(f"animal\tBird\t{animal.name}\t{animal.age}\t{animal.sound}\t{animal.types}\t\n")
+                elif animal.__class__.__name__ == "Mammal":
+                    file.write(f"animal\tBird\t{animal.name}\t{animal.age}\t{animal.sound}\t{animal.predator}\t\n")
+                elif animal.__class__.__name__ == "Reptile":
+                    file.write(f"animal\tBird\t{animal.name}\t{animal.age}\t{animal.sound}\t{animal.toxic}\t\n")
+            for person in self.employees:
+                file.write(f"employee\t{person.name}\t{person.__class__.__name__}\n")
+
+    def read_data(self):
+        with open('data.txt', 'r') as file:
+            for line in file:
+                data = file.readline().split("\t")
+                print(data)
+                a=input()
