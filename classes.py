@@ -90,11 +90,10 @@ class Zoo():
                 elif animal.__class__.__name__ == "Reptile":
                     file.write(f"animal\tBird\t{animal.name}\t{animal.age}\t{animal.sound}\t{animal.toxic}\t\n")
             for person in self.employees:
-                file.write(f"employee\t{person.name}\t{person.__class__.__name__}\n")
+                file.write(f"employee\t{person.name}\t{person.__class__.__name__}\t\n")
 
     def read_data(self):
         with open('data.txt', 'r') as file:
             for line in file:
-                data = file.readline().split("\t")
+                data = line.split("\t")
                 print(data)
-                a=input()
