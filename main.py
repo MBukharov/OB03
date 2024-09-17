@@ -35,8 +35,72 @@ def animal_sound(animals):
     for animal in animals:
         animal.make_sound()
 
+#ТЕСТ ЗАДАНИЙ 1-3
+print("ТЕСТ ЗАДАНИЙ 1-3")
 animals = [Bird("Утка","1","Кря-кря","Перелетная"),
            Mammal("Тигр","5","РРРРР","Хищник"),
            Reptile("Уж","1","Шшшшшшш","Не ядовит")]
 
 animal_sound(animals)
+
+
+#ЗАДАНИЕ 4-5
+class ZooKeeper():
+    def __init__(self,name):
+        self.name = name
+    def feed_animal(self):
+        print(f"Сотрудник {self.name} кормит животных")
+
+class Veterinarian():
+    def __init__(self,name):
+        self.name = name
+    def heal_animal(self):
+        print(f"Сотрудник {self.name} лечит животных")
+
+class Zoo():
+    def __init__(self,city):
+        self.city = city
+        self.animals = []
+        self.employees = []
+
+    #Добавление животного
+    def add_animal(self,what,name,age,sound,feature):
+        if what == "Bird":
+            self.animals.append(Bird(name,age,sound,feature))
+        elif what == "Mammal":
+            self.animals.append(Mammal(name, age, sound, feature))
+        elif what == "Reptile":
+            self.animals.append(Reptile(name, age, sound, feature))
+
+    # Добавление сотрудника
+    def add_employee(self,name,who):
+        if who == "Zookeeper":
+            self.employees.append(ZooKeeper(name))
+        elif who == "Veterinarian":
+            self.employees.append(Veterinarian(name))
+
+    def zoo_info(self):
+        print(f"Зоопарк в {self.city} имеет следующих зверей:")
+        for animal in self.animals:
+            print(f"{animal.name}, возраст: {animal.age}")
+        print(f"Зоопарк в {self.city} имеет следующих сотрудников:")
+        for person in self.employees:
+            print(f"{person.name}, должность: {person.__class__.__name__}")
+
+    def animal_sound(self):
+        print("Голоса животных:")
+        for animal in self.animals:
+            animal.make_sound()
+
+#ТЕСТ ЗАДАНИЙ 4-5
+print("\nТЕСТ ЗАДАНИЙ 1-3")
+zoo = Zoo("Москва")
+zoo.add_animal("Bird","Воробей","2","Чирик-чирик","Не перелетный")
+zoo.add_animal("Mammal","Лев","5","РРРРР","Хищник")
+zoo.add_animal("Reptile","Кобра","2","Шшшшшш","Ядовита")
+
+zoo.add_employee("Валера","Zookeeper")
+zoo.add_employee("Анна","Veterinarian")
+
+zoo.zoo_info()
+zoo.animal_sound()
