@@ -20,8 +20,8 @@ zoo.add_animal("Bird","Воробей","2","Чирик-чирик","Не пер�
 zoo.add_animal("Mammal","Лев","5","РРРРР","Хищник")
 zoo.add_animal("Reptile","Кобра","2","Шшшшшш","Ядовита")
 
-zoo.add_employee("Валера","Zookeeper")
-zoo.add_employee("Анна","Veterinarian")
+zoo.add_employee("ZooKeeper","Валера")
+zoo.add_employee("Veterinarian","Анна")
 
 zoo.zoo_info()
 zoo.employees[0].feed_animal()
@@ -29,4 +29,4 @@ zoo.employees[1].heal_animal()
 zoo.animal_sound()
 
 zoo.write_data()
-zoo.read_data()
+# zoo.read_data()

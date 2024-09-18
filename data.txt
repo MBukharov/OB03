@@ -1,5 +1,0 @@
-animal	Bird	Воробей	2	Чирик-чирик	Не перелетный	
-animal	Bird	Лев	5	РРРРР	Хищник	
-animal	Bird	Кобра	2	Шшшшшш	Ядовита	
-employee	Валера	ZooKeeper
-employee	Анна	Veterinarian
