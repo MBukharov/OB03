@@ -86,7 +86,7 @@ class Zoo():
             animal.make_sound()
 
     def write_data(self,filename):
-        with open(filename,'w') as file:
+        with open(filename,'w',encoding="utf-16") as file:
             for animal in self.animals:
                 if animal.__class__.__name__ == "Bird":
                     file.write(f"animal\tBird\t{animal.name}\t{animal.age}\t{animal.sound}\t{animal.types}\t\n")
@@ -100,7 +100,7 @@ class Zoo():
 
     def read_data(self,filename):
         try:
-            with open(filename, 'r') as file:
+            with open(filename, 'r',encoding="utf-16") as file:
                 for line in file:
                     data = line.split("\t")
                     if data[0] == "animal":
