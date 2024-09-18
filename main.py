@@ -28,5 +28,5 @@ zoo.employees[0].feed_animal()
 zoo.employees[1].heal_animal()
 zoo.animal_sound()
 
-zoo.write_data()
+zoo.write_data("data.txt")
 # zoo.read_data()

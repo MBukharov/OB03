@@ -85,8 +85,8 @@ class Zoo():
         for animal in self.animals:
             animal.make_sound()
 
-    def write_data(self):
-        with open('data.txt','w') as file:
+    def write_data(self,filename):
+        with open(filename,'w') as file:
             for animal in self.animals:
                 if animal.__class__.__name__ == "Bird":
                     file.write(f"animal\tBird\t{animal.name}\t{animal.age}\t{animal.sound}\t{animal.types}\t\n")
@@ -99,13 +99,16 @@ class Zoo():
         print("Файл с данными записан")
 
     def read_data(self,filename):
-        with open(filename, 'r') as file:
-            for line in file:
-                data = line.split("\t")
-                if data[0] == "animal":
-                    self.animals.append(Bird(data[2],data[3],data[4],data[5]))
-                elif data[0] == "employee":
-                    match data[1]:
-                        case "ZooKeeper": self.employees.append(ZooKeeper(data[2]))
-                        case "Veterinarian": self.employees.append(Veterinarian(data[2]))
-        print("Файл с данными прочитан")
+        try:
+            with open(filename, 'r') as file:
+                for line in file:
+                    data = line.split("\t")
+                    if data[0] == "animal":
+                        self.animals.append(Bird(data[2],data[3],data[4],data[5]))
+                    elif data[0] == "employee":
+                        match data[1]:
+                            case "ZooKeeper": self.employees.append(ZooKeeper(data[2]))
+                            case "Veterinarian": self.employees.append(Veterinarian(data[2]))
+            print("Файл с данными прочитан")
+        except FileNotFoundError:
+            print(f"Ошибка чтения файла. Файла {filename} не существует")

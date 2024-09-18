@@ -9,4 +9,4 @@ zoo.zoo_info()
 zoo.add_animal("Mammal","Слон","30","Туууу","Травоядный")
 zoo.add_employee("ZooKeeper","Катя")
 
-zoo.write_data()
+zoo.write_data('data.txt')
